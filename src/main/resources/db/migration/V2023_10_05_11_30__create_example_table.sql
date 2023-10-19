@@ -1,0 +1,6 @@
+CREATE TABLE mbti_example
+(
+    id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    type     VARCHAR(10)  NOT NULL,
+    comments VARCHAR(255) NOT NULL
+)
