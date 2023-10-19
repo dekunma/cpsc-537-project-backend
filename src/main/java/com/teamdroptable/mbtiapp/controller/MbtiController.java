@@ -1,5 +1,6 @@
 package com.teamdroptable.mbtiapp.controller;
 
+import com.teamdroptable.mbtiapp.common.CommonResponseWrapper;
 import com.teamdroptable.mbtiapp.model.MbtiExample;
 import com.teamdroptable.mbtiapp.service.MbtiService;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1")
 @AllArgsConstructor
+@CommonResponseWrapper
 public class MbtiController {
     private final MbtiService mbtiService;
 
