@@ -13,7 +13,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         logger.error("application exception occurred with details", exception);
 
 
-        return ResponseEntity.status(exception.getStatusCode())
+        return ResponseEntity.status(exception.getStatus())
                 .body(exception.getCode());
     }
 }

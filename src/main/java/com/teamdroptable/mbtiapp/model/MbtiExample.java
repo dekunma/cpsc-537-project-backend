@@ -1,7 +1,8 @@
 package com.teamdroptable.mbtiapp.model;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mbti_example")
