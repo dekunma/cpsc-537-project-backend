@@ -51,7 +51,7 @@ public class MbtiAppSecurityConfig extends WebSecurityConfigurerAdapter {
                 "*" // FIXME: remove before going into production
         ));
 
-        configuration.setAllowCredentials(true);
+//        configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type", "Set-Cookie", "Access-Control-Allow-Origin"));
         configuration.setExposedHeaders(List.of("Authorization", "Set-Cookie", "Access-Control-Allow-Origin"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
