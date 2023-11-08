@@ -12,6 +12,7 @@ public enum ResponseCode {
     /*param error scope: 1001~1999*/
     PARM_IS_INVALID(1001, "user input invalid"),
     PARM_IS_BLANK(1002, "user input blank argument"),
+    NO_PERSON_WITH_SUCH_NAME(1003, "no person with such name"),
 
     /*user triggered error*/
     USER_ACCESS_TOKEN_EXPIRED(2001, "user token expired"),

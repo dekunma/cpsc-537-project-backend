@@ -1,10 +1,12 @@
 package com.teamdroptable.mbtiapp.controller;
 
 import com.teamdroptable.mbtiapp.common.CommonResponseWrapper;
+import com.teamdroptable.mbtiapp.controller.response.PersonResponse;
 import com.teamdroptable.mbtiapp.model.MbtiExample;
 import com.teamdroptable.mbtiapp.service.MbtiService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,10 @@ public class MbtiController {
     @GetMapping("/examples")
     public List<MbtiExample> getAllExampleMbti() {
         return mbtiService.getAllExampleMbti();
+    }
+
+    @GetMapping("/person/{name}")
+    public PersonResponse getPersonByName(@PathVariable String name) {
+        return mbtiService.getPersonByName(name);
     }
 }
