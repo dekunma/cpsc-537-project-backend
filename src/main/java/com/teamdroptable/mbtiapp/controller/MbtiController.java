@@ -1,6 +1,7 @@
 package com.teamdroptable.mbtiapp.controller;
 
 import com.teamdroptable.mbtiapp.common.CommonResponseWrapper;
+import com.teamdroptable.mbtiapp.controller.response.PersonCard;
 import com.teamdroptable.mbtiapp.controller.response.PersonResponse;
 import com.teamdroptable.mbtiapp.model.MbtiExample;
 import com.teamdroptable.mbtiapp.service.MbtiService;
@@ -30,7 +31,7 @@ public class MbtiController {
     }
 
     @GetMapping("/people/random-ten")
-    public List<PersonResponse> getTenRandomPeople() {
+    public List<PersonCard> getTenRandomPeople() {
         return mbtiService.getTenRandomPeople();
     }
 }

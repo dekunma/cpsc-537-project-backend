@@ -1,5 +1,6 @@
 package com.teamdroptable.mbtiapp.service;
 
+import com.teamdroptable.mbtiapp.controller.response.PersonCard;
 import com.teamdroptable.mbtiapp.controller.response.PersonResponse;
 import com.teamdroptable.mbtiapp.enums.ResponseCode;
 import com.teamdroptable.mbtiapp.exceptions.ApplicationException;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,11 +31,19 @@ public class MbtiService {
         return person;
     }
 
-    public List<PersonResponse> getTenRandomPeople() {
-        var ans = personRepository.getRandomPeople();
-        while (ans.size() < 10) {
-            ans.addAll(personRepository.getRandomPeople());
+    public List<PersonCard> getTenRandomPeople() {
+        var randomPeople = personRepository.getRandomPeople();
+        while (randomPeople.size() < 10) {
+            randomPeople.addAll(personRepository.getRandomPeople());
         }
-        return ans.subList(0, 10);
+
+        List<PersonCard> ret = new ArrayList<>();
+        for (PersonResponse p : randomPeople)
+            ret.add(PersonCard.builder()
+                    .name(p.getName())
+                    .description(p.getDescription100() == null ? p.getMovie() : p.getDescription100())
+                    .build());
+
+        return ret;
     }
 }
