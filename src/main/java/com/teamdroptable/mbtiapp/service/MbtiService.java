@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -44,6 +45,7 @@ public class MbtiService {
                     .description(p.getDescription100() == null ? p.getMovie() : p.getDescription100())
                     .build());
 
+        Collections.shuffle(ret);
         return ret;
     }
 }
