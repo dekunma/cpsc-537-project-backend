@@ -38,6 +38,9 @@ public class MbtiService {
             randomPeople.addAll(personRepository.getRandomPeople());
         }
 
+        Collections.shuffle(randomPeople);
+        randomPeople = randomPeople.subList(0, 10);
+
         List<PersonCard> ret = new ArrayList<>();
         for (PersonResponse p : randomPeople)
             ret.add(PersonCard.builder()
@@ -45,7 +48,6 @@ public class MbtiService {
                     .description(p.getDescription100() == null ? p.getMovie() : p.getDescription100())
                     .build());
 
-        Collections.shuffle(ret);
         return ret;
     }
 }
