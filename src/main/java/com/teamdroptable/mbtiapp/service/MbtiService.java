@@ -28,4 +28,12 @@ public class MbtiService {
             throw new ApplicationException(ResponseCode.NO_PERSON_WITH_SUCH_NAME, HttpStatus.BAD_REQUEST);
         return person;
     }
+
+    public List<PersonResponse> getTenRandomPeople() {
+        var ans = personRepository.getRandomPeople();
+        while (ans.size() < 10) {
+            ans.addAll(personRepository.getRandomPeople());
+        }
+        return ans.subList(0, 10);
+    }
 }

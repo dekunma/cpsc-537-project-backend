@@ -28,4 +28,9 @@ public class MbtiController {
     public PersonResponse getPersonByName(@PathVariable String name) {
         return mbtiService.getPersonByName(name);
     }
+
+    @GetMapping("/people/random-ten")
+    public List<PersonResponse> getTenRandomPeople() {
+        return mbtiService.getTenRandomPeople();
+    }
 }
