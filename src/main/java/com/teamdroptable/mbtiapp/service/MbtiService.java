@@ -50,4 +50,9 @@ public class MbtiService {
 
         return ret;
     }
+
+    public List<PersonResponse> findPeopleByName(String partialName) {
+        List<PersonResponse> people = personRepository.findByNameContaining(partialName);
+        return people;
+    }
 }

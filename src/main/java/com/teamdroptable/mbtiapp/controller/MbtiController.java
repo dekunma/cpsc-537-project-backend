@@ -6,10 +6,7 @@ import com.teamdroptable.mbtiapp.controller.response.PersonResponse;
 import com.teamdroptable.mbtiapp.model.MbtiExample;
 import com.teamdroptable.mbtiapp.service.MbtiService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,10 @@ public class MbtiController {
     @GetMapping("/people/random-ten")
     public List<PersonCard> getTenRandomPeople() {
         return mbtiService.getTenRandomPeople();
+    }
+
+    @GetMapping("/person/search")
+    public List<PersonResponse> findPeopleByName(@RequestParam String query) {
+        return mbtiService.findPeopleByName(query);
     }
 }
